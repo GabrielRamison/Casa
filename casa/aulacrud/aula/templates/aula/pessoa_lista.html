@@ -1,0 +1,39 @@
+{% extends 'conteudo.html' %}
+{% block conteudo %}
+
+<h1>Lista de Casas</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Endereço</th>
+            <th>Número de Quartos</th>
+            <th>Área</th>
+            <th>Proprietário</th>
+            <th>Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for casa in casas %}
+        <tr>
+            <td>{{ casa.id }}</td>
+            <td>{{ casa.endereco }}</td>
+            <td>{{ casa.numero_quartos }}</td>
+            <td>{{ casa.area }} m²</td>
+            <td>{{ casa.proprietario.nome }}</td>
+            <td>
+                <a href="#" class="btn btn-danger" role="button">
+                    <span class="text-light text-center"></span>
+                </a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">Nenhuma casa cadastrada.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
